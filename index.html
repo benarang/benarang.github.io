@@ -1,0 +1,1170 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>唐心vlog - 生活方式_影像记录者 | 用镜头收藏每一帧温柔日常</title>
+<meta name="description" content="唐心vlog 是一个专注生活方式影像创作的视频品牌，用真实、温柔、有质感的镜头记录城市日常、旅行见闻与手作时光，和百万观众一起慢下来感受生活。">
+<style>
+  :root{
+    --ink:#1c1a17;
+    --ink-soft:#3d3831;
+    --paper:#f7f3ec;
+    --paper-2:#efe8dc;
+    --card:#fffdf8;
+    --line:#e2d9ca;
+    --accent:#c9683f;
+    --accent-2:#8a9a7b;
+    --accent-3:#3f5c63;
+    --gold:#c9a45c;
+    --shadow:0 18px 40px -22px rgba(40,32,22,.45);
+    --radius:18px;
+    --serif:"Georgia","Songti SC","STSong","SimSun",serif;
+    --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.8;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  img,svg{display:block;max-width:100%}
+  ::selection{background:var(--accent);color:#fff}
+
+  /* ---------- 顶部导航 ---------- */
+  .topbar{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 40px;
+    background:rgba(247,243,236,.82);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid transparent;
+    transition:background .4s,border-color .4s,padding .4s;
+  }
+  .topbar.scrolled{
+    background:rgba(250,247,241,.95);
+    border-bottom:1px solid var(--line);
+    padding:10px 40px;
+    box-shadow:0 10px 30px -24px rgba(0,0,0,.5);
+  }
+  .brand{
+    display:flex;align-items:center;gap:12px;
+    font-family:var(--serif);font-size:21px;letter-spacing:.06em;font-weight:700;
+  }
+  .brand-mark{
+    width:38px;height:38px;border-radius:50%;
+    display:grid;place-items:center;
+    background:linear-gradient(140deg,var(--accent),#e6a67a);
+    color:#fff;font-size:13px;letter-spacing:.02em;
+    box-shadow:0 6px 16px -8px var(--accent);
+    flex:0 0 auto;
+  }
+  .brand small{
+    display:block;font-family:var(--sans);font-size:10px;
+    letter-spacing:.28em;color:var(--accent);font-weight:400;
+    margin-top:-3px;
+  }
+  .nav{display:flex;gap:6px;align-items:center}
+  .nav a{
+    font-size:14px;color:var(--ink-soft);padding:8px 14px;border-radius:30px;
+    transition:.3s;position:relative;letter-spacing:.04em;
+  }
+  .nav a:hover{color:var(--accent);background:rgba(201,104,63,.08)}
+  .nav .cta{
+    background:var(--ink);color:var(--paper);
+    padding:10px 22px;border-radius:30px;margin-left:10px;font-size:13.5px;
+  }
+  .nav .cta:hover{background:var(--accent);color:#fff}
+  .menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+  .menu-toggle span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    align-items:center;
+    gap:40px;
+    padding:140px 6vw 90px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:0;
+    background:
+      radial-gradient(circle at 78% 24%,rgba(201,104,63,.16),transparent 46%),
+      radial-gradient(circle at 8% 82%,rgba(138,154,123,.20),transparent 44%),
+      radial-gradient(circle at 50% 50%,rgba(201,164,92,.08),transparent 60%);
+  }
+  .hero-grain{
+    position:absolute;inset:0;z-index:0;opacity:.5;pointer-events:none;
+  }
+  .hero-left{position:relative;z-index:2}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:12px;letter-spacing:.32em;color:var(--accent);
+    text-transform:uppercase;margin-bottom:22px;
+  }
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--accent)}
+  h1{
+    font-family:var(--serif);
+    font-size:clamp(48px,7.4vw,104px);
+    line-height:1.02;
+    letter-spacing:-.01em;
+    font-weight:700;
+    color:var(--ink);
+  }
+  h1 em{
+    font-style:normal;
+    color:var(--accent);
+    display:inline-block;
+    position:relative;
+  }
+  h1 em::after{
+    content:"";position:absolute;left:0;right:0;bottom:.08em;height:.09em;
+    background:var(--gold);opacity:.45;border-radius:4px;
+  }
+  .hero-sub{
+    margin:26px 0 18px;
+    font-size:17px;
+    color:var(--ink-soft);
+    max-width:520px;
+  }
+  .hero-sub strong{color:var(--ink);font-weight:600}
+  .hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 36px}
+  .hero-tags span{
+    font-size:12.5px;padding:7px 16px;border-radius:30px;
+    border:1px solid var(--line);background:rgba(255,253,248,.7);
+    color:var(--ink-soft);letter-spacing:.04em;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:15px 30px;border-radius:40px;font-size:14.5px;
+    letter-spacing:.05em;transition:.35s;cursor:pointer;border:none;
+    font-family:var(--sans);
+  }
+  .btn-primary{background:var(--ink);color:var(--paper)}
+  .btn-primary:hover{background:var(--accent);transform:translateY(-3px);box-shadow:0 16px 30px -16px var(--accent)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink-soft)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px)}
+  .btn svg{width:16px;height:16px}
+  .hero-stats{
+    display:flex;gap:38px;margin-top:52px;flex-wrap:wrap;
+  }
+  .hero-stats div b{
+    font-family:var(--serif);font-size:30px;display:block;
+    color:var(--ink);line-height:1.1;
+  }
+  .hero-stats div span{font-size:12.5px;color:var(--ink-soft);letter-spacing:.12em}
+
+  /* 右侧视频卡片堆叠 */
+  .hero-right{position:relative;z-index:2;display:flex;justify-content:center;align-items:center}
+  .phone-stack{position:relative;width:min(360px,86%);aspect-ratio:9/16}
+  .phone{
+    position:absolute;inset:0;
+    border-radius:38px;
+    background:linear-gradient(160deg,#2a2622,#3f382f);
+    box-shadow:var(--shadow),0 0 0 8px rgba(255,253,248,.55),0 0 0 9px rgba(60,52,40,.18);
+    padding:10px;
+    transition:transform .5s;
+  }
+  .phone-screen{
+    width:100%;height:100%;border-radius:30px;overflow:hidden;position:relative;
+    background:#0f0d0b;
+  }
+  .phone-bg{
+    position:absolute;inset:0;
+    background:
+      radial-gradient(circle at 65% 30%,#d99164 0%,transparent 55%),
+      radial-gradient(circle at 30% 75%,#7d8f6f 0%,transparent 52%),
+      linear-gradient(160deg,#2b2620,#4a3f34 60%,#1d1915);
+    filter:saturate(1.05);
+  }
+  .phone-sun{
+    position:absolute;top:18%;left:50%;transform:translateX(-50%);
+    width:120px;height:120px;border-radius:50%;
+    background:radial-gradient(circle,#ffe6bd,#f2b878 60%,transparent 70%);
+    filter:blur(2px);opacity:.85;
+  }
+  .phone-hills{
+    position:absolute;bottom:0;left:0;right:0;height:46%;
+    background:linear-gradient(to top,#20241c,transparent);
+  }
+  .phone-hills svg{position:absolute;bottom:0;width:100%}
+  .phone-ui{
+    position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;
+    padding:22px 18px;color:#fff;
+  }
+  .phone-ui-top{display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.12em}
+  .rec{display:flex;align-items:center;gap:6px}
+  .rec i{width:7px;height:7px;border-radius:50%;background:#ff5a4d;animation:blink 1.4s infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+  .phone-ui-bottom p{font-size:13px;font-family:var(--serif);letter-spacing:.08em;opacity:.92}
+  .phone-ui-bottom span{font-size:10px;letter-spacing:.2em;opacity:.6}
+  .play-btn{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:64px;height:64px;border-radius:50%;
+    background:rgba(255,253,248,.16);backdrop-filter:blur(6px);
+    border:1px solid rgba(255,255,255,.4);
+    display:grid;place-items:center;cursor:pointer;transition:.3s;
+  }
+  .play-btn:hover{transform:translate(-50%,-50%) scale(1.1);background:rgba(201,104,63,.6)}
+  .play-btn svg{width:20px;height:20px;fill:#fff;margin-left:3px}
+  .float-card{
+    position:absolute;background:var(--card);border-radius:16px;
+    box-shadow:var(--shadow);padding:14px 18px;
+    font-size:12px;color:var(--ink-soft);z-index:5;
+    border:1px solid var(--line);
+    animation:float 6s ease-in-out infinite;
+  }
+  .float-card b{display:block;font-family:var(--serif);font-size:19px;color:var(--ink);line-height:1.3}
+  .fc1{top:6%;left:-14%;animation-delay:0s}
+  .fc2{bottom:14%;right:-16%;animation-delay:2s}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+  .scroll-hint{
+    position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+    font-size:11px;letter-spacing:.28em;color:var(--ink-soft);z-index:3;
+  }
+  .scroll-hint i{width:1px;height:44px;background:linear-gradient(to bottom,var(--accent),transparent);display:block}
+
+  /* ---------- 通用 section ---------- */
+  section{position:relative}
+  .container{max-width:1220px;margin:0 auto;padding:0 6vw}
+  .sec-head{margin-bottom:56px;max-width:760px}
+  .sec-label{
+    font-size:12px;letter-spacing:.3em;color:var(--accent);
+    display:flex;align-items:center;gap:10px;margin-bottom:16px;text-transform:uppercase;
+  }
+  .sec-label::before{content:"";width:26px;height:1px;background:var(--accent)}
+  .sec-title{
+    font-family:var(--serif);font-size:clamp(30px,4vw,46px);
+    line-height:1.2;letter-spacing:-.01em;font-weight:700;color:var(--ink);
+  }
+  .sec-desc{margin-top:18px;color:var(--ink-soft);font-size:15.5px;max-width:600px}
+  .fade-up{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.22,.9,.3,1),transform .9s cubic-bezier(.22,.9,.3,1)}
+  .fade-up.in{opacity:1;transform:none}
+
+  /* ---------- 关于 / 品牌主张 ---------- */
+  .about{padding:110px 0;background:var(--paper-2);position:relative;overflow:hidden}
+  .about::after{
+    content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;
+    background:radial-gradient(circle,rgba(201,164,92,.16),transparent 68%);
+  }
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+  .about-visual{position:relative}
+  .about-collage{position:relative;aspect-ratio:4/4.4;max-width:480px}
+  .collage-item{
+    position:absolute;border-radius:var(--radius);overflow:hidden;
+    box-shadow:var(--shadow);border:6px solid var(--card);
+    transition:transform .5s;
+  }
+  .collage-item:hover{transform:rotate(0deg) scale(1.03);z-index:9}
+  .ci-1{width:62%;top:0;left:0;transform:rotate(-4deg);aspect-ratio:3/4}
+  .ci-2{width:54%;bottom:6%;right:0;transform:rotate(5deg);aspect-ratio:1/1;z-index:2}
+  .ci-3{width:40%;bottom:0;left:12%;transform:rotate(-2deg);aspect-ratio:1/1;z-index:3}
+  .collage-art{width:100%;height:100%;display:block}
+  .about-quote{
+    position:absolute;right:-18px;top:46%;z-index:6;
+    background:var(--ink);color:var(--paper);
+    font-family:var(--serif);padding:16px 22px;border-radius:12px;
+    font-size:14px;letter-spacing:.06em;box-shadow:var(--shadow);
+    writing-mode:vertical-rl;
+  }
+  .about-text p{color:var(--ink-soft);margin-bottom:20px;font-size:15.5px}
+  .about-text p strong{color:var(--ink);font-weight:600}
+  .values{display:grid;gap:2px;margin-top:34px;border-top:1px solid var(--line)}
+  .value-row{
+    display:grid;grid-template-columns:44px 1fr;gap:18px;align-items:flex-start;
+    padding:22px 6px;border-bottom:1px solid var(--line);transition:.3s;
+  }
+  .value-row:hover{background:rgba(255,253,248,.6);padding-left:14px}
+  .value-num{font-family:var(--serif);color:var(--accent);font-size:15px;padding-top:2px}
+  .value-row h4{font-size:16px;margin-bottom:5px;font-weight:600;letter-spacing:.02em}
+  .value-row p{font-size:13.8px;color:var(--ink-soft);margin:0;line-height:1.7}
+
+  /* ---------- 内容栏目 / 视频卡 ---------- */
+  .series{padding:120px 0}
+  .series-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:26px;
+  }
+  .card{
+    background:var(--card);border-radius:var(--radius);overflow:hidden;
+    border:1px solid var(--line);box-shadow:0 6px 22px -20px rgba(40,32,22,.6);
+    transition:transform .45s cubic-bezier(.22,.9,.3,1),box-shadow .45s;
+    display:flex;flex-direction:column;
+  }
+  .card:hover{transform:translateY(-9px);box-shadow:var(--shadow)}
+  .card-thumb{position:relative;aspect-ratio:16/10;overflow:hidden}
+  .card-thumb svg{width:100%;height:100%;transition:transform .7s cubic-bezier(.22,.9,.3,1)}
+  .card:hover .card-thumb svg{transform:scale(1.08)}
+  .card-badge{
+    position:absolute;top:14px;left:14px;background:rgba(28,26,23,.72);
+    color:#fff;font-size:11px;letter-spacing:.14em;padding:5px 12px;border-radius:20px;
+    backdrop-filter:blur(4px);
+  }
+  .card-dur{
+    position:absolute;bottom:14px;right:14px;background:rgba(28,26,23,.78);
+    color:#fff;font-size:11px;padding:3px 10px;border-radius:6px;letter-spacing:.06em;
+  }
+  .card-body{padding:24px 24px 26px;flex:1;display:flex;flex-direction:column}
+  .card-meta{font-size:11.5px;letter-spacing:.16em;color:var(--accent);margin-bottom:11px}
+  .card-body h3{font-family:var(--serif);font-size:20px;line-height:1.4;margin-bottom:10px;font-weight:700}
+  .card-body p{font-size:13.6px;color:var(--ink-soft);flex:1;margin-bottom:18px;line-height:1.75}
+  .card-foot{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:15px}
+  .card-foot .go{color:var(--accent);display:inline-flex;align-items:center;gap:6px;font-weight:600;letter-spacing:.04em}
+  .card-foot .go svg{width:13px;height:13px;transition:.3s}
+  .card:hover .card-foot .go svg{transform:translateX(4px)}
+
+  /* ---------- 数据条 ---------- */
+  .numbers{
+    padding:70px 0;background:var(--ink);color:var(--paper);
+    position:relative;overflow:hidden;
+  }
+  .numbers::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 20% 0%,rgba(201,104,63,.28),transparent 50%),
+               radial-gradient(circle at 90% 100%,rgba(138,154,123,.22),transparent 50%);
+  }
+  .numbers .container{position:relative;z-index:2}
+  .num-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+  .num-item{text-align:center;padding:16px}
+  .num-item b{
+    font-family:var(--serif);font-size:clamp(34px,4.6vw,54px);line-height:1;
+    display:block;color:var(--gold);letter-spacing:-.01em;
+  }
+  .num-item span{font-size:12.5px;letter-spacing:.18em;opacity:.7;display:block;margin-top:12px}
+
+  /* ---------- 时间线 / 幕后 ---------- */
+  .behind{padding:120px 0;background:var(--paper-2)}
+  .timeline{position:relative;margin-top:20px}
+  .timeline::before{
+    content:"";position:absolute;left:19px;top:8px;bottom:8px;width:1.5px;
+    background:linear-gradient(to bottom,var(--accent),var(--accent-2),transparent);
+  }
+  .tl-item{position:relative;padding:0 0 42px 62px}
+  .tl-item:last-child{padding-bottom:0}
+  .tl-dot{
+    position:absolute;left:11px;top:6px;width:18px;height:18px;border-radius:50%;
+    background:var(--card);border:2.5px solid var(--accent);z-index:2;
+    box-shadow:0 0 0 5px var(--paper-2);
+  }
+  .tl-item:nth-child(even) .tl-dot{border-color:var(--accent-2)}
+  .tl-time{font-size:12px;letter-spacing:.2em;color:var(--accent);margin-bottom:7px}
+  .tl-item h4{font-family:var(--serif);font-size:20px;margin-bottom:8px;font-weight:700}
+  .tl-item p{font-size:14.2px;color:var(--ink-soft);max-width:680px}
+  .behind-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:66px;align-items:start}
+  .gear-list{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 30px 22px;box-shadow:var(--shadow)}
+  .gear-list h4{font-family:var(--serif);font-size:18px;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+  .gear-list h4 i{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block}
+  .gear-item{display:flex;justify-content:space-between;padding:12px 2px;border-bottom:1px dashed var(--line);font-size:13.8px}
+  .gear-item:last-child{border-bottom:none}
+  .gear-item span:first-child{color:var(--ink)}
+  .gear-item span:last-child{color:var(--ink-soft);font-size:12.6px;letter-spacing:.04em}
+
+  /* ---------- 观众留言 ---------- */
+  .voices{padding:120px 0}
+  .voice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .voice{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:30px 26px;transition:.4s;position:relative;
+  }
+  .voice:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:#d9c9b2}
+  .voice .quote-mark{font-family:var(--serif);font-size:52px;color:var(--accent);opacity:.28;line-height:.6;margin-bottom:12px}
+  .voice p{font-size:14.2px;color:var(--ink-soft);margin-bottom:22px;line-height:1.85}
+  .voice-user{display:flex;align-items:center;gap:12px}
+  .avatar{
+    width:40px;height:40px;border-radius:50%;display:grid;place-items:center;
+    font-family:var(--serif);color:#fff;font-size:14px;flex:0 0 auto;
+  }
+  .voice-user b{font-size:13.5px;display:block;font-weight:600}
+  .voice-user span{font-size:11.5px;color:var(--ink-soft);letter-spacing:.08em}
+
+  /* ---------- 订阅 CTA ---------- */
+  .subscribe{
+    padding:100px 0;position:relative;overflow:hidden;
+    background:linear-gradient(150deg,#211d19,#332c24 55%,#40372c);
+    color:var(--paper);
+  }
+  .subscribe::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 80% 20%,rgba(201,104,63,.30),transparent 52%),
+               radial-gradient(circle at 12% 90%,rgba(201,164,92,.20),transparent 50%);
+  }
+  .sub-wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
+  .subscribe h2{font-family:var(--serif);font-size:clamp(30px,4.2vw,50px);line-height:1.16;margin-bottom:20px}
+  .subscribe p{font-size:15px;color:rgba(247,243,236,.72);max-width:520px;margin-bottom:32px}
+  .sub-form{display:flex;gap:12px;max-width:480px;flex-wrap:wrap}
+  .sub-form input{
+    flex:1;min-width:200px;padding:15px 20px;border-radius:40px;border:1px solid rgba(247,243,236,.22);
+    background:rgba(255,253,248,.07);color:var(--paper);font-size:14px;outline:none;font-family:var(--sans);
+    transition:.3s;
+  }
+  .sub-form input::placeholder{color:rgba(247,243,236,.42)}
+  .sub-form input:focus{border-color:var(--gold);background:rgba(255,253,248,.12)}
+  .sub-form button{
+    padding:15px 30px;border-radius:40px;border:none;cursor:pointer;
+    background:var(--accent);color:#fff;font-size:14px;letter-spacing:.06em;transition:.3s;font-family:var(--sans);
+  }
+  .sub-form button:hover{background:#dd7a4e;transform:translateY(-2px)}
+  .sub-meta{font-size:12px;color:rgba(247,243,236,.45);margin-top:16px;letter-spacing:.06em}
+  .sub-card{
+    background:rgba(255,253,248,.06);border:1px solid rgba(247,243,236,.16);
+    border-radius:var(--radius);padding:32px 30px;backdrop-filter:blur(8px);
+  }
+  .sub-card h4{font-family:var(--serif);font-size:18px;margin-bottom:8px}
+  .sub-card > p{font-size:13px;color:rgba(247,243,236,.6);margin-bottom:22px}
+  .sub-list{display:grid;gap:14px}
+  .sub-list div{display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:rgba(247,243,236,.82)}
+  .sub-list svg{width:16px;height:16px;flex:0 0 auto;margin-top:4px;stroke:var(--gold)}
+  .toast{
+    position:fixed;left:50%;bottom:36px;transform:translate(-50%,80px);
+    background:var(--ink);color:var(--paper);padding:14px 26px;border-radius:40px;
+    font-size:13.5px;letter-spacing:.05em;opacity:0;transition:.45s;z-index:200;
+    box-shadow:0 18px 40px -18px rgba(0,0,0,.7);pointer-events:none;
+  }
+  .toast.show{opacity:1;transform:translate(-50%,0)}
+
+  /* ---------- 页脚 ---------- */
+  footer{background:var(--ink);color:rgba(247,243,236,.68);padding:76px 0 32px}
+  .foot-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:44px;margin-bottom:56px}
+  .foot-brand .brand{color:var(--paper);margin-bottom:18px}
+  .foot-brand p{font-size:13.5px;max-width:320px;line-height:1.9;color:rgba(247,243,236,.52)}
+  .socials{display:flex;gap:12px;margin-top:22px}
+  .socials a{
+    width:38px;height:38px;border-radius:50%;border:1px solid rgba(247,243,236,.18);
+    display:grid;place-items:center;transition:.3s;
+  }
+  .socials a:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-3px)}
+  .socials svg{width:16px;height:16px;stroke:rgba(247,243,236,.8);fill:none}
+  .socials a:hover svg{stroke:#fff}
+  .foot-col h5{font-size:12px;letter-spacing:.24em;color:var(--gold);margin-bottom:20px;font-weight:600}
+  .foot-col a{display:block;font-size:13.5px;margin-bottom:12px;color:rgba(247,243,236,.6);transition:.25s}
+  .foot-col a:hover{color:var(--paper);padding-left:5px}
+  .foot-bottom{
+    border-top:1px solid rgba(247,243,236,.12);padding-top:26px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
+    font-size:12px;color:rgba(247,243,236,.38);letter-spacing:.04em;
+  }
+
+  /* ---------- 响应式 ---------- */
+  @media(max-width:980px){
+    .hero{grid-template-columns:1fr;padding:130px 6vw 80px;gap:60px;text-align:left}
+    .hero-right{order:2}
+    .phone-stack{max-width:300px}
+    .about-grid,.behind-wrap,.sub-wrap{grid-template-columns:1fr;gap:50px}
+    .series-grid,.voice-grid{grid-template-columns:repeat(2,1fr)}
+    .num-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+    .foot-top{grid-template-columns:1fr 1fr;gap:36px}
+    .fc1{left:-4%}
+    .fc2{right:-4%}
+  }
+  @media(max-width:720px){
+    .topbar{padding:12px 20px}
+    .topbar.scrolled{padding:10px 20px}
+    .nav{
+      position:fixed;top:64px;right:16px;flex-direction:column;align-items:stretch;
+      background:var(--card);border:1px solid var(--line);border-radius:16px;
+      padding:12px;box-shadow:var(--shadow);gap:2px;
+      opacity:0;pointer-events:none;transform:translateY(-10px);transition:.3s;min-width:180px;
+    }
+    .nav.open{opacity:1;pointer-events:auto;transform:none}
+    .nav a{padding:11px 16px;font-size:14px}
+    .nav .cta{margin-left:0;text-align:center;margin-top:6px}
+    .menu-toggle{display:flex}
+    .series-grid,.voice-grid{grid-template-columns:1fr}
+    .hero-stats{gap:24px;margin-top:38px}
+    .hero-stats div b{font-size:24px}
+    .about-collage{max-width:100%}
+    .about-quote{display:none}
+    .foot-top{grid-template-columns:1fr}
+    .container{padding:0 7vw}
+    .subscribe,.series,.voices,.about,.behind{padding:80px 0}
+    .float-card{display:none}
+    .num-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .fade-up{opacity:1;transform:none}
+  }
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- ============ 顶部导航 ============ -->
+<header class="topbar" id="topbar">
+  <a href="#top" class="brand">
+    <span class="brand-mark">唐心</span>
+    <span>唐心vlog<small>SLOW LIVING FILM</small></span>
+  </a>
+  <nav class="nav" id="nav">
+    <a href="#about">关于我们</a>
+    <a href="#series">内容栏目</a>
+    <a href="#behind">幕后日常</a>
+    <a href="#voices">观众说</a>
+    <a href="#subscribe" class="cta">订阅频道</a>
+  </nav>
+  <div class="menu-toggle" id="menuToggle" aria-label="打开菜单" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- ============ Hero ============ -->
+<section class="hero" id="top">
+  <svg class="hero-grain" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+    <filter id="grainFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.045"/></feComponentTransfer>
+    </filter>
+    <rect width="100%" height="100%" filter="url(#grainFilter)" opacity="0.9"/>
+  </svg>
+
+  <div class="hero-left">
+    <div class="eyebrow">Lifestyle · Film · Diary</div>
+    <h1>唐心vlog<br><em>慢下来</em>，才看得见生活</h1>
+    <p class="hero-sub">
+      这里是一个专注<strong>生活方式影像</strong>的记录空间。唐心vlog 用真实、温柔、有呼吸感的镜头，
+      收藏城市日常、旅行见闻与手作时光，陪你在快时代里留一段慢下来的时间。
+    </p>
+    <div class="hero-tags">
+      <span>#城市漫游</span>
+      <span>#一人食厨房</span>
+      <span>#旅行手记</span>
+      <span>#手作与器物</span>
+      <span>#光影记录</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#series" class="btn btn-primary">
+        浏览最新视频
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#about" class="btn btn-ghost">认识唐心</a>
+    </div>
+    <div class="hero-stats">
+      <div><b>128万</b><span>全平台订阅</span></div>
+      <div><b>460+</b><span>原创影像作品</span></div>
+      <div><b>6年</b><span>持续记录时间</span></div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="phone-stack">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="phone-bg"></div>
+          <div class="phone-sun"></div>
+          <div class="phone-hills">
+            <svg viewBox="0 0 360 200" preserveAspectRatio="none" height="200">
+              <path d="M0,150 C60,110 120,140 180,120 C240,100 300,130 360,105 L360,200 L0,200 Z" fill="#3b4a37" opacity="0.9"/>
+              <path d="M0,175 C70,150 130,172 200,158 C260,146 320,168 360,155 L360,200 L0,200 Z" fill="#26301f"/>
+            </svg>
+          </div>
+          <div class="phone-ui">
+            <div class="phone-ui-top">
+              <div class="rec"><i></i>REC 4K</div>
+              <div>EP.142</div>
+            </div>
+            <div class="phone-ui-bottom">
+              <p>傍晚六点，城市开始变软</p>
+              <span>SHENZHEN · 2024 AUTUMN</span>
+            </div>
+          </div>
+          <button class="play-btn" aria-label="播放预告">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="float-card fc1">
+        <b>本周更新</b>
+        《一个人的晚间厨房》Vol.07
+      </div>
+      <div class="float-card fc2">
+        <b>98.6%</b>
+        观众完播好评率
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint"><span>向下滑动</span><i></i></div>
+</section>
+
+<!-- ============ 关于 ============ -->
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-visual fade-up">
+      <div class="about-collage">
+        <div class="collage-item ci-1">
+          <svg class="collage-art" viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#e8b98d"/><stop offset="1" stop-color="#b5673f"/>
+              </linearGradient>
+            </defs>
+            <rect width="300" height="400" fill="url(#g1)"/>
+            <circle cx="220" cy="90" r="58" fill="#f9e2c4" opacity="0.85"/>
+            <path d="M0,300 C70,250 150,290 230,255 C270,238 290,255 300,248 L300,400 L0,400 Z" fill="#7f4f33" opacity="0.85"/>
+            <path d="M0,345 C80,315 160,340 240,318 C270,310 290,320 300,315 L300,400 L0,400 Z" fill="#4a2d1f"/>
+            <rect x="40" y="120" width="6" height="120" fill="#3d2a1d" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="collage-item ci-2">
+          <svg class="collage-art" viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice">
+            <rect width="300" height="300" fill="#8a9a7b"/>
+            <circle cx="100" cy="120" r="70" fill="#cfdcc0" opacity="0.7"/>
+            <path d="M0,220 Q75,180 150,215 T300,200 L300,300 L0,300 Z" fill="#5c6b4c"/>
+            <path d="M160,60 q30,-30 60,0 q-30,30 -60,0" fill="#e7edd9" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="collage-item ci-3">
+          <svg class="collage-art" viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice">
+            <rect width="300" height="300" fill="#3f5c63"/>
+            <circle cx="150" cy="130" r="66" fill="#9fc0c2" opacity="0.75"/>
+            <path d="M0,230 C80,200 160,235 240,205 L300,220 L300,300 L0,300 Z" fill="#263c41"/>
+            <rect x="120" y="120" width="60" height="70" rx="30" fill="#f3e6cf" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="about-quote">镜头之外，也是生活</div>
+      </div>
+    </div>
+
+    <div class="about-text fade-up">
+      <div class="sec-label">关于唐心vlog</div>
+      <h2 class="sec-title">做一个温柔的观察者，<br>把普通日子拍成值得回看的故事</h2>
+      <p style="margin-top:24px">
+        <strong>唐心vlog</strong> 由影像创作者唐心发起，从一辆旧自行车、一台二手相机开始，
+        在六年里走过五十多座城市，也把大量镜头留在了厨房、窗台、街角与出租屋的小客厅。
+      </p>
+      <p>
+        我们相信好的影像不需要宏大叙事：一顿认真做完的晚饭、一次雨后散步、一件亲手打磨的木器，
+        都值得被温柔地记录下来。唐心vlog 的每一支视频都以真实为第一原则，
+        不摆拍、不喧哗，让声音与画面自己说话。
+      </p>
+      <p>
+        除了内容创作，我们持续开放拍摄手记、器材清单与后期流程，
+        希望把「记录生活」这件事变成更多人都能上手的日常能力。
+      </p>
+      <div class="values">
+        <div class="value-row">
+          <div class="value-num">01</div>
+          <div><h4>真实优先</h4><p>不制造焦虑，不设计人设，镜头里的情绪与节奏都来自真实发生。</p></div>
+        </div>
+        <div class="value-row">
+          <div class="value-num">02</div>
+          <div><h4>慢而完整</h4><p>一条片子可以剪三周，只为保留一个呼吸的停顿与一段自然的环境声。</p></div>
+        </div>
+        <div class="value-row">
+          <div class="value-num">03</div>
+          <div><h4>开放共享</h4><p>拍摄参数、剪辑思路、选景经验全部公开，欢迎每一位想记录生活的人取用。</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 内容栏目 ============ -->
+<section class="series" id="series">
+  <div class="container">
+    <div class="sec-head fade-up">
+      <div class="sec-label">内容栏目</div>
+      <h2 class="sec-title">六个长期更新的影像系列</h2>
+      <p class="sec-desc">每个栏目都有固定的节奏与表达方式，你可以在任意一集进入，不会迷路。</p>
+    </div>
+
+    <div class="series-grid">
+      <article class="card fade-up">
+        <div class="card-thumb">
+          <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="s1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9b487"/><stop offset="1" stop-color="#a85a36"/></linearGradient></defs>
+            <rect width="400" height="250" fill="url(#s1)"/>
+            <circle cx="310" cy="70" r="46" fill="#fbe9cf" opacity="0.85"/>
+            <path d="M0,190 C90,150 180,200 270,168 C330,148 370,170 400,158 L400,250 L0,250 Z" fill="#6f4329"/>
+            <rect x="70" y="90" width="54" height="80" fill="#3d2a1d" opacity="0.35"/>
+          </svg>
+          <span class="card-badge">城市漫游</span>
+          <span class="card-dur">12:40</span>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">EP.138 · 步行影像</div>
+          <h3>在旧城区走了一整个下午</h3>
+          <p>不设路线、不开导航，只跟着街边的光走。老式理发店、修鞋摊与刚出炉的面包房，构成一座城市最真实的纹理。</p>
+          <div class="card-foot"><span>8.2万次观看</span><a href="#series" class="go">观看<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        </div>
+      </article>
+
+      <article class="card fade-up">
+        <div class="card-thumb">
+          <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="250" fill="#8a9a7b"/>
+            <circle cx="130" cy="100" r="64" fill="#d5e0c6" opacity="0.8"/>
+            <path d="M0,200 Q100,160 200,192 T400,178 L400,250 L0,250 Z" fill="#54634a"/>
+            <circle cx="290" cy="80" r="22" fill="#f2ead9" opacity="0.7"/>
+          </svg>
+          <span class="card-badge">一人食厨房</span>
+          <span class="card-dur">08:16</span>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">Vol.07 · 晚间系列</div>
+          <h3>一个人的晚间厨房：番茄炖牛腩</h3>
+          <p>下班后的一小时，把厨房灯打开。慢炖的时间里可以洗碗、擦桌子，或者什么都不做，只听锅里咕嘟的声音。</p>
+          <div class="card-foot"><span>11.6万次观看</span><a href="#series" class="go">观看<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        </div>
+      </article>
+
+      <article class="card fade-up">
+        <div class="card-thumb">
+          <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="250" fill="#3f5c63"/>
+            <circle cx="200" cy="120" r="72" fill="#9fc0c2" opacity="0.7"/>
+            <path d="M0,175 C80,140 160,180 240,150 C310,124 370,155 400,142 L400,250 L0,250 Z" fill="#253c42"/>
+            <path d="M0,205 C90,180 180,210 270,188 L400,200 L400,250 L0,250 Z" fill="#17282c"/>
+          </svg>
+          <span class="card-badge">旅行手记</span>
+          <span class="card-dur">21:05</span>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">Trip 09 · 海岛篇</div>
+          <h3>坐最早一班船，去一座没有便利店的小岛</h3>
+          <p>三天两夜的行李只有一个背包。清晨的雾、渔港的猫、停电的夜晚，让这次旅行比想象中更接近自己。</p>
+          <div class="card-foot"><span>15.3万次观看</span><a href="#series" class="go">观看<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        </div>
+      </article>
+
+      <article class="card fade-up">
+        <div class="card-thumb">
+          <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="250" fill="#c9a45c"/>
+            <circle cx="120" cy="110" r="58" fill="#efdcb6" opacity="0.85"/>
+            <rect x="240" y="60" width="90" height="130" rx="8" fill="#7a5d33" opacity="0.6"/>
+            <path d="M0,205 C100,180 200,210 300,190 L400,200 L400,250 L0,250 Z" fill="#8a6a3a"/>
+          </svg>
+          <span class="card-badge">手作器物</span>
+          <span class="card-dur">16:22</span>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">Workshop · 木工</div>
+          <h3>从一块边角料，到一把能用的木勺</h3>
+          <p>和木作老师傅共处两天，记录打磨、上油与等待干燥的过程。器物之所以有温度，是因为它留下了时间。</p>
+          <div class="card-foot"><span>6.9万次观看</span><a href="#series" class="go">观看<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        </div>
+      </article>
+
+      <article class="card fade-up">
+        <div class="card-thumb">
+          <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="250" fill="#6f7d8f"/>
+            <circle cx="280" cy="90" r="56" fill="#cfd8e2" opacity="0.8"/>
+            <path d="M0,190 C90,160 180,195 270,170 C330,153 370,170 400,162 L400,250 L0,250 Z" fill="#3c4757"/>
+            <path d="M0,215 C100,196 200,220 300,204 L400,212 L400,250 L0,250 Z" fill="#26303b"/>
+          </svg>
+          <span class="card-badge">光影记录</span>
+          <span class="card-dur">10:48</span>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">Short Film · 雨</div>
+          <h3>一场从傍晚下到深夜的雨</h3>
+          <p>没有旁白，只有雨落在遮阳棚、树叶和积水上的声音。我们用四十分钟的环境声，陪你度过一个安静的夜。</p>
+          <div class="card-foot"><span>9.4万次观看</span><a href="#series" class="go">观看<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        </div>
+      </article>
+
+      <article class="card fade-up">
+        <div class="card-thumb">
+          <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="250" fill="#a8735a"/>
+            <circle cx="150" cy="95" r="52" fill="#f0cdb4" opacity="0.85"/>
+            <rect x="60" y="150" width="80" height="60" fill="#5f3a2b" opacity="0.5"/>
+            <rect x="230" y="120" width="110" height="90" rx="6" fill="#7a4737" opacity="0.55"/>
+            <path d="M0,215 C100,196 220,222 320,206 L400,214 L400,250 L0,250 Z" fill="#5c3527"/>
+          </svg>
+          <span class="card-badge">拍摄手记</span>
+          <span class="card-dur">14:33</span>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">Notes · 全流程</div>
+          <h3>一条五分钟视频，我是怎么拍出来的</h3>
+          <p>从选题、勘景、分镜到剪辑与调色，完整公开这次的拍摄参数、失败素材和取舍逻辑，适合刚开始记录的人。</p>
+          <div class="card-foot"><span>7.7万次观看</span><a href="#series" class="go">观看<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 数字 ============ -->
+<section class="numbers">
+  <div class="container">
+    <div class="num-grid">
+      <div class="num-item fade-up"><b data-count="1280000" data-suffix="+">0</b><span>全平台订阅观众</span></div>
+      <div class="num-item fade-up"><b data-count="460" data-suffix="+">0</b><span>原创影像篇章</span></div>
+      <div class="num-item fade-up"><b data-count="53" data-suffix="">0</b><span>抵达过的城市</span></div>
+      <div class="num-item fade-up"><b data-count="210000000" data-suffix="+">0</b><span>累计播放次数</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 幕后 ============ -->
+<section class="behind" id="behind">
+  <div class="container">
+    <div class="sec-head fade-up">
+      <div class="sec-label">幕后日常</div>
+      <h2 class="sec-title">一支视频从想法到发布，<br>会经历这些</h2>
+      <p class="sec-desc">我们把创作过程完整摊开。每一个环节都欢迎被讨论、被质疑、被改进。</p>
+    </div>
+
+    <div class="behind-wrap">
+      <div class="timeline fade-up">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">DAY 01 · 选题</div>
+          <h4>先从一件真实的小事开始</h4>
+          <p>选题不来自热点榜单，而来自写满半本的日常笔记：哪家店的灯在几点亮、哪条巷子下午有光、哪道菜一直想做却总拖着。真实的好奇心，是唯一标准。</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">DAY 02 · 勘景</div>
+          <h4>提前走一遍，但不写死脚本</h4>
+          <p>确定三到四个可用机位与环境声来源，记录当天光线走向。我们只写「事件顺序」，不写台词，让拍摄对象保持自己的节奏。</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">DAY 03–04 · 拍摄</div>
+          <h4>多留一点空镜，也多留一点空白</h4>
+          <p>主力机身搭配一支定焦，减少切换带来的打扰。拍摄时同步录制环境音，很多成片里的关键情绪，其实来自声音而不是画面。</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">DAY 05–09 · 剪辑</div>
+          <h4>剪掉一半，才算开始</h4>
+          <p>先按情绪而非时间排序，再做两到三轮删减。调色以还原现场为准，尽量保留皮肤与木质的真实质感，不做过度滤镜。</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">DAY 10 · 发布与复盘</div>
+          <h4>把观众的意见写进下一条</h4>
+          <p>发布后同步上传拍摄手记与参数清单，并在一周内整理评论区高频问题。下一条视频的改进点，往往就藏在这些留言里。</p>
+        </div>
+      </div>
+
+      <aside class="gear-list fade-up">
+        <h4><i></i>常用器材清单</h4>
+        <div class="gear-item"><span>主力机身</span><span>全画幅微单 × 1</span></div>
+        <div class="gear-item"><span>常驻镜头</span><span>35mm F1.8 定焦</span></div>
+        <div class="gear-item"><span>备用镜头</span><span>85mm F2 中长焦</span></div>
+        <div class="gear-item"><span>收音设备</span><span>机头麦 + 无线领夹</span></div>
+        <div class="gear-item"><span>稳定方案</span><span>手持 + 小型三脚架</span></div>
+        <div class="gear-item"><span>灯光</span><span>自然光为主，补一盏柔光管灯</span></div>
+        <div class="gear-item"><span>存储策略</span><span>双备份 + 离线硬盘归档</span></div>
+        <div class="gear-item"><span>剪辑软件</span><span>非线性剪辑 + 轻度调色</span></div>
+        <div class="gear-item"><span>素材规范</span><span>4K 25fps / 10bit 内录</span></div>
+        <div class="gear-item"><span>字幕与校对</span><span>人工逐句核对</span></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 观众说 ============ -->
+<section class="voices" id="voices">
+  <div class="container">
+    <div class="sec-head fade-up">
+      <div class="sec-label">观众说</div>
+      <h2 class="sec-title">来自评论区的声音</h2>
+      <p class="sec-desc">每一条留言我们都看过。这些真实反馈，是唐心vlog 一直更新下去的理由。</p>
+    </div>
+
+    <div class="voice-grid">
+      <div class="voice fade-up">
+        <div class="quote-mark">“</div>
+        <p>加班到十一点回家，洗完澡打开最新一集，看你在厨房慢慢煮东西，忽然觉得今天也没有那么糟。谢谢你一直拍这么安静的内容。</p>
+        <div class="voice-user">
+          <div class="avatar" style="background:#c9683f">林</div>
+          <div><b>林小满</b><span>订阅 3 年</span></div>
+        </div>
+      </div>
+
+      <div class="voice fade-up">
+        <div class="quote-mark">“</div>
+        <p>跟着拍摄手记那期买了人生第一台二手相机，现在每周会给自己拍一条三分钟的小片子。原来记录生活真的不需要多专业的设备。</p>
+        <div class="voice-user">
+          <div class="avatar" style="background:#8a9a7b">周</div>
+          <div><b>周末上山</b><span>订阅 1 年半</span></div>
+        </div>
+      </div>
+
+      <div class="voice fade-up">
+        <div class="quote-mark">“</div>
+        <p>海岛那期我反复看了四遍。没有夸张的运镜，也没有硬凑的配乐，就是安安静静地把一个地方讲清楚。现在很少见到这样的视频了。</p>
+        <div class="voice-user">
+          <div class="avatar" style="background:#3f5c63">阿</div>
+          <div><b>阿岛</b><span>订阅 4 年</span></div>
+        </div>
+      </div>
+
+      <div class="voice fade-up">
+        <div class="quote-mark">“</div>
+        <p>作为一名剪辑新手，最喜欢的是你公开失败素材的那一期。原来好看的成片背后也有一堆废镜头，这比任何教程都更让人安心。</p>
+        <div class="voice-user">
+          <div class="avatar" style="background:#c9a45c">剪</div>
+          <div><b>剪片到深夜</b><span>订阅 8 个月</span></div>
+        </div>
+      </div>
+
+      <div class="voice fade-up">
+        <div class="quote-mark">“</div>
+        <p>妈妈今年六十岁，我教她在电视上放你的视频。她说这个小姑娘拍的东西看着舒服，还问我番茄炖牛腩到底要炖多久。</p>
+        <div class="voice-user">
+          <div class="avatar" style="background:#a8735a">陈</div>
+          <div><b>陈叙</b><span>订阅 2 年</span></div>
+        </div>
+      </div>
+
+      <div class="voice fade-up">
+        <div class="quote-mark">“</div>
+        <p>因为这一场雨的环境声，我戒掉了睡前刷短视频的习惯，改成听一段自然声再睡。意外的收获，谢谢你把它做成一条完整的片子。</p>
+        <div class="voice-user">
+          <div class="avatar" style="background:#6f7d8f">夜</div>
+          <div><b>夜航船</b><span>订阅 5 年</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 订阅 ============ -->
+<section class="subscribe" id="subscribe">
+  <div class="container sub-wrap">
+    <div class="fade-up">
+      <div class="sec-label" style="color:#e6a67a">订阅频道</div>
+      <h2>每周一封信，<br>带来一条新片与一段手记</h2>
+      <p>留下邮箱，就能在每次更新时第一时间收到通知。我们不会转发广告，也不会把名单交给任何第三方，你随时可以退订。</p>
+      <form class="sub-form" id="subForm" novalidate>
+        <input type="email" id="subEmail" placeholder="请输入你的邮箱地址" autocomplete="email" required>
+        <button type="submit">订阅</button>
+      </form>
+      <div class="sub-meta">已有 42,680 位观众订阅 · 平均每月两封</div>
+    </div>
+
+    <div class="sub-card fade-up">
+      <h4>订阅后你会收到</h4>
+      <p>来自唐心vlog 的持续陪伴</p>
+      <div class="sub-list">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          <span>新片首发通知与观看链接</span>
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          <span>完整拍摄手记与器材参数</span>
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          <span>每月一份生活片单与书单</span>
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          <span>线下放映与共创活动优先报名</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 页脚 ============ -->
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="brand">
+          <span class="brand-mark">唐心</span>
+          <span>唐心vlog<small>SLOW LIVING FILM</small></span>
+        </div>
+        <p>用真实、温柔、有质感的影像记录生活日常，陪你在快时代里，留一段慢下来的时间。</p>
+        <div class="socials">
+          <a href="#top" aria-label="视频平台">
+            <svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M10 9l5 3-5 3z" fill="rgba(247,243,236,.8)" stroke="none"/></svg>
+          </a>
+          <a href="#top" aria-label="社交平台">
+            <svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M4 8V6a2 2 0 012-2h2M20 8V6a2 2 0 00-2-2h-2M4 16v2a2 2 0 002 2h2M20 16v2a2 2 0 01-2 2h-2"/></svg>
+          </a>
+          <a href="#top" aria-label="邮件">
+            <svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="foot-col">
+        <h5>内容</h5>
+        <a href="#series">城市漫游</a>
+        <a href="#series">一人食厨房</a>
+        <a href="#series">旅行手记</a>
+        <a href="#series">手作器物</a>
+        <a href="#series">光影记录</a>
+      </div>
+
+      <div class="foot-col">
+        <h5>关于</h5>
+        <a href="#about">品牌故事</a>
+        <a href="#behind">幕后日常</a>
+        <a href="#voices">观众说</a>
+        <a href="#subscribe">订阅频道</a>
+      </div>
+
+      <div class="foot-col">
+        <h5>联系</h5>
+        <a href="#subscribe">内容合作</a>
+        <a href="#subscribe">品牌共创</a>
+        <a href="#subscribe">媒体联络</a>
+        <a href="#subscribe">影像授权</a>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <span>© 2024 唐心vlog · 保留所有权利</span>
+      <span>本页面为品牌展示示例 · 影像与文字版权归唐心vlog 所有</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">订阅成功，感谢你的加入</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- 顶部导航滚动态 ---------- */
+  var topbar = document.getElementById('topbar');
+  var nav = document.getElementById('nav');
+  var menuToggle = document.getElementById('menuToggle');
+
+  function onScroll(){
+    if(window.scrollY > 40){
+      topbar.classList.add('scrolled');
+    }else{
+      topbar.classList.remove('scrolled');
+    }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* ---------- 移动端菜单 ---------- */
+  function toggleMenu(){
+    nav.classList.toggle('open');
+  }
+  menuToggle.addEventListener('click', toggleMenu);
+  menuToggle.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggleMenu(); }
+  });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      nav.classList.remove('open');
+    });
+  });
+
+  /* ---------- 滚动渐显 ---------- */
+  var faders = document.querySelectorAll('.fade-up');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          en.target.classList.add('in');
+          io.unobserve(en.target);
+        }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    faders.forEach(function(el){ io.observe(el); });
+  }else{
+    faders.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 数字增长动画 ---------- */
+  function formatNumber(n){
+    if(n >= 100000000) return (n/100000000).toFixed(1).replace(/\.0$/,'') + '亿';
+    if(n >= 10000) return (n/10000).toFixed(1).replace(/\.0$/,'') + '万';
+    return String(n);
+  }
+  var counters = document.querySelectorAll('[data-count]');
+  function animateCount(el){
+    var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+    var suffix = el.getAttribute('data-suffix') || '';
+    var start = null;
+    var duration = 1600;
+    function step(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts - start)/duration, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var val = Math.round(target * eased);
+      el.textContent = formatNumber(val) + (p === 1 ? suffix : '');
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window){
+    var cio = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          animateCount(en.target);
+          cio.unobserve(en.target);
+        }
+      });
+    }, {threshold:0.5});
+    counters.forEach(function(el){ cio.observe(el); });
+  }else{
+    counters.forEach(function(el){
+      el.textContent = formatNumber(parseInt(el.getAttribute('data-count'),10)) + (el.getAttribute('data-suffix')||'');
+    });
+  }
+
+  /* ---------- 订阅表单 ---------- */
+  var form = document.getElementById('subForm');
+  var emailInput = document.getElementById('subEmail');
+  var toast = document.getElementById('toast');
+  var toastTimer = null;
+
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 3200);
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var val = (emailInput.value || '').trim();
+    var ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val);
+    if(!ok){
+      showToast('请填写一个有效的邮箱地址');
+      emailInput.focus();
+      return;
+    }
+    showToast('订阅成功，感谢你的加入');
+    emailInput.value = '';
+  });
+
+  /* ---------- 播放按钮轻交互 ---------- */
+  var playBtn = document.querySelector('.play-btn');
+  if(playBtn){
+    playBtn.addEventListener('click', function(){
+      showToast('预告片即将上线 · 敬请期待');
+    });
+  }
+
+  /* ---------- 卡片平滑滚入（额外错峰） ---------- */
+  var cards = document.querySelectorAll('.series-grid .card');
+  cards.forEach(function(card, i){
+    card.style.transitionDelay = (i % 3) * 90 + 'ms';
+  });
+  var voices = document.querySelectorAll('.voice-grid .voice');
+  voices.forEach(function(v, i){
+    v.style.transitionDelay = (i % 3) * 80 + 'ms';
+  });
+})();
+</script>
+</body>
+  </html>
